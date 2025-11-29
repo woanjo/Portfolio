@@ -1,19 +1,19 @@
 // Dark Mode Toggle
 const themeToggle = document.getElementById('themeToggle');
-const htmlElement = document.documentElement;
+const bodyElement = document.body;
 
 // Load saved theme preference or default to light mode
 const savedTheme = localStorage.getItem('theme') || 'light-mode';
-htmlElement.classList.add(savedTheme);
+bodyElement.classList.add(savedTheme);
 updateThemeToggle();
 
 // Theme toggle functionality
 if (themeToggle) {
   themeToggle.addEventListener('click', function() {
-    htmlElement.classList.toggle('dark-mode');
+    bodyElement.classList.toggle('dark-mode');
     
     // Save preference
-    const isDarkMode = htmlElement.classList.contains('dark-mode');
+    const isDarkMode = bodyElement.classList.contains('dark-mode');
     localStorage.setItem('theme', isDarkMode ? 'dark-mode' : 'light-mode');
     
     updateThemeToggle();
@@ -22,7 +22,7 @@ if (themeToggle) {
 
 function updateThemeToggle() {
   if (themeToggle) {
-    const isDarkMode = htmlElement.classList.contains('dark-mode');
+    const isDarkMode = bodyElement.classList.contains('dark-mode');
     themeToggle.innerHTML = isDarkMode ? '☀️' : '🌙';
     themeToggle.setAttribute('aria-label', isDarkMode ? 'Switch to light mode' : 'Switch to dark mode');
   }
@@ -69,7 +69,7 @@ const observer = new IntersectionObserver(function(entries) {
 
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.project-card, .edu-column, .hobby-image, .info-box').forEach(el => {
+  document.querySelectorAll('.project-card, .edu-column, .hobby-image, .info-box, .skill-card, .timeline-item').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Add hover effects to cards
 function enhanceCards() {
-  const cards = document.querySelectorAll('.project-card, .edu-column, .hobby-image, .info-box');
+  const cards = document.querySelectorAll('.project-card, .edu-column, .hobby-image, .info-box, .skill-card');
   
   cards.forEach(card => {
     card.addEventListener('mouseenter', function() {
