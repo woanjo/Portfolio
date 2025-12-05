@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.classList.remove('active');
     if (link.getAttribute('href') === currentPage || 
-        (currentPage === '' && link.getAttribute('href') === 'Borres Portfolio.html')) {
+        (currentPage === '' && link.getAttribute('href') === 'index.html')) {
       link.classList.add('active');
     }
   });
